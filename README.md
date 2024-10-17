@@ -66,18 +66,18 @@ C:\swork\CommNet
 
 ## 백엔드 실행
 
-1. **프로젝트 클론**:
+1. **프로젝트 클론**:  
     \`\`bash  
     git clone https://github.com/ddj82/CommNet.git  
     cd CommNet/backend/commnet-be  
     \`\`
 
-2. **의존성 설치 및 빌드**:
+2. **의존성 설치 및 빌드**:  
     \`\`bash  
     ./gradlew build  
     \`\`
 
-3. **MySQL 데이터베이스 설정**:
+3. **MySQL 데이터베이스 설정**:  
     - \`application.properties\` 파일에서 MySQL 설정을 맞춰주세요:  
     - \`\`properties  
     spring.datasource.url=jdbc:mysql://localhost:3306/commnet  
@@ -85,25 +85,25 @@ C:\swork\CommNet
     spring.datasource.password=yourpassword  
     \`\`
 
-5. **애플리케이션 실행**:
+5. **애플리케이션 실행**:  
     \`\`bash  
     ./gradlew bootRun
     \`\`
 
 ## 프론트엔드 실행
 
-1. **프로젝트 클론**:
+1. **프로젝트 클론**:  
     \`\`bash  
     git clone https://github.com/ddj82/CommNet.git  
     cd CommNet/frontend/commnet-fe
     \`\`
 
-2. **의존성 설치**:
+2. **의존성 설치**:  
     \`\`bash  
     npm install
     \`\`
 
-3. **애플리케이션 실행**:
+3. **애플리케이션 실행**:  
     \`\`bash  
     npm start
     \`\`
