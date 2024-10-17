@@ -42,19 +42,33 @@ CommNet은 사용자가 가입하고, 로그인하여 게시판에 글을 작성
 ## 3. 구성
 
 \`\`\`bash
+
 C:\swork\CommNet
+
 ├── backend
+
 │   └── commnet-be
+
 │       ├── src
+
 │       └── build.gradle
+
 ├── frontend
+
 │   └── commnet-fe
+
 │       ├── src
+
 │       └── package.json
+
 ├── .gitignore
+
 ├── README.md
+
 └── ...
+
 \`\`\`
+
 
 - **backend/commnet-be**: Spring Boot 기반 백엔드 코드
 - **frontend/commnet-fe**: React 기반 프론트엔드 코드
