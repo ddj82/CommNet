@@ -1,0 +1,21 @@
+.div-main {
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.div-label {
+    margin: 5px 0;
+}
+
+.input-text, .btn-submit {
+    width: 100%;
+    margin: 10px 0;
+    font-size: 18px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
