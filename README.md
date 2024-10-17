@@ -41,32 +41,19 @@ CommNet은 사용자가 가입하고, 로그인하여 게시판에 글을 작성
 
 # 구성
 
-\`\`bash
-
-C:\swork\CommNet
-
-├── backend
-
-│   └── commnet-be
-
-│       ├── src
-
-│       └── build.gradle
-
-├── frontend
-
-│   └── commnet-fe
-
-│       ├── src
-
-│       └── package.json
-
-├── .gitignore
-
-├── README.md
-
-└── ...
-
+\`\`bash  
+C:\swork\CommNet  
+├── backend  
+│   └── commnet-be  
+│       ├── src  
+│       └── build.gradle  
+├── frontend  
+│   └── commnet-fe  
+│       ├── src  
+│       └── package.json  
+├── .gitignore  
+├── README.md  
+└── ...  
 \`\`
 
 
@@ -91,11 +78,11 @@ C:\swork\CommNet
     \`\`
 
 3. **MySQL 데이터베이스 설정**:
-    - \`application.properties\` 파일에서 MySQL 설정을 맞춰주세요:
-    - \`\`properties
-    spring.datasource.url=jdbc:mysql://localhost:3306/commnet
-    spring.datasource.username=root
-    spring.datasource.password=yourpassword
+    - \`application.properties\` 파일에서 MySQL 설정을 맞춰주세요:  
+    - \`\`properties  
+    spring.datasource.url=jdbc:mysql://localhost:3306/commnet  
+    spring.datasource.username=root  
+    spring.datasource.password=yourpassword  
     \`\`
 
 5. **애플리케이션 실행**:
