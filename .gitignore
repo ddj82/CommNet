@@ -1,0 +1,33 @@
+# **공통**
+# IDE 관련
+.idea/
+*.iml
+
+# 운영체제 관련
+.DS_Store
+Thumbs.db
+
+
+# **백엔드**
+# Maven/Gradle 관련
+.gradle/
+build/
+target/
+
+# 로그 파일
+*.log
+
+
+# **프론트엔드**
+# Node.js 관련
+node_modules/
+build/
+
+# 로그 파일
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# **환경 설정 파일**
+.env
