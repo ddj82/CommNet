@@ -125,9 +125,12 @@ C:\swork\CommNet
 - **Response**:
     json  
     {  
-      "token": "JWT_TOKEN",  
-      "userId": 1,  
-      "name": "John Doe"  
+      "token": "JWT_TOKEN~~~",  
+      "id": "user@example.com",
+      "email": "user@example.com",  
+      "password": "",  
+      "name": "user"
+      ...
     }  
 
 ## 게시판 API
