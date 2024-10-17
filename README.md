@@ -41,7 +41,7 @@ CommNet은 사용자가 가입하고, 로그인하여 게시판에 글을 작성
 
 # 구성
 
-\`\`bash  
+bash  
 C:\swork\CommNet  
 ├── backend  
 │   └── commnet-be  
@@ -54,7 +54,6 @@ C:\swork\CommNet
 ├── .gitignore  
 ├── README.md  
 └── ...  
-\`\`
 
 
 - **backend/commnet-be**: Spring Boot 기반 백엔드 코드
@@ -67,46 +66,39 @@ C:\swork\CommNet
 ## 백엔드 실행
 
 1. **프로젝트 클론**:  
-    \`\`bash  
+    bash  
     git clone https://github.com/ddj82/CommNet.git  
     cd CommNet/backend/commnet-be  
-    \`\`
 
 2. **의존성 설치 및 빌드**:  
-    \`\`bash  
+    bash  
     ./gradlew build  
-    \`\`
 
 3. **MySQL 데이터베이스 설정**:  
-    - \`application.properties\` 파일에서 MySQL 설정을 맞춰주세요:  
-    - \`\`properties  
+    - application.properties 파일에서 MySQL 설정을 맞춰주세요:  
+    - properties  
     spring.datasource.url=jdbc:mysql://localhost:3306/commnet  
     spring.datasource.username=root  
     spring.datasource.password=yourpassword  
-    \`\`
 
 5. **애플리케이션 실행**:  
-    \`\`bash  
+    bash  
     ./gradlew bootRun
-    \`\`
 
 ## 프론트엔드 실행
 
 1. **프로젝트 클론**:  
-    \`\`bash  
+    bash  
     git clone https://github.com/ddj82/CommNet.git  
     cd CommNet/frontend/commnet-fe
-    \`\`
 
 2. **의존성 설치**:  
-    \`\`bash  
+    bash  
     npm install
-    \`\`
 
 3. **애플리케이션 실행**:  
-    \`\`bash  
+    bash  
     npm start
-    \`\`
 
 ---
 
@@ -121,29 +113,27 @@ C:\swork\CommNet
 
 ## 로그인 API
 
-- **URL**: \`/api/auth/login\`
-- **Method**: \`POST\`
+- **URL**: /api/auth/login
+- **Method**: POST
 - **Request Body**:
-    \`\`json  
+    json  
     {  
       "email": "user@example.com",  
       "password": "password123"  
     }  
-    \`\`
 
 - **Response**:
-    \`\`json  
+    json  
     {  
       "token": "JWT_TOKEN",  
       "userId": 1,  
       "name": "John Doe"  
     }  
-    \`\`
 
 ## 게시판 API
 
-- **URL**: \`/api/board\`
-- **Method**: \`GET\`
+- **URL**: /api/board
+- **Method**: GET
 - **Description**: 게시물 목록을 가져옵니다.
 
 ---
