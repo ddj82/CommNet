@@ -92,13 +92,18 @@ C:\swork\CommNet
 
 3. **MySQL 데이터베이스 설정**:
     - \`application.properties\` 파일에서 MySQL 설정을 맞춰주세요:
+    - 
     \`\`properties
+
     spring.datasource.url=jdbc:mysql://localhost:3306/commnet
+
     spring.datasource.username=root
+   
     spring.datasource.password=yourpassword
+   
     \`\`
 
-4. **애플리케이션 실행**:
+5. **애플리케이션 실행**:
     \`\`bash
     ./gradlew bootRun
     \`\`
