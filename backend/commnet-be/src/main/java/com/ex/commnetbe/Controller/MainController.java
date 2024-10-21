@@ -23,8 +23,12 @@ public class MainController {
         return mainService.BoardListAll();
     }
 
-    @PostMapping("boardIst")
+    @PostMapping("board/insert")
     public ResponseDto<?> boardInsert(@RequestBody BoardDto requestBody) {
         return mainService.boardInsert(requestBody);
+    }
+    @PostMapping("board/one")
+    public ResponseDto<?> boardOne(@RequestBody BoardDto requestBody) {
+        return mainService.boardOne(requestBody);
     }
 }

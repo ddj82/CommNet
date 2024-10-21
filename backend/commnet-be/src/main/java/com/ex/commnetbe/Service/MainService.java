@@ -47,8 +47,18 @@ public class MainService {
         BoardEntity boardEntity = new BoardEntity(dto);
         try {
             boardRepository.save(boardEntity);
-
             return ResponseDto.setSuccess("글 등록에 성공했습니다.");
+        } catch (Exception e) {
+            return ResponseDto.setFailed("데이터베이스 연결에 실패하였습니다.");
+        }
+    }
+
+    public ResponseDto<?> boardOne(BoardDto dto) {
+        String postId = String.valueOf(dto.getPostId());
+        BoardEntity boardEntity;
+        try {
+            boardEntity = boardRepository.findById(postId).orElse(null);
+            return ResponseDto.setSuccessData("글 조회에 성공했습니다.", boardEntity);
         } catch (Exception e) {
             return ResponseDto.setFailed("데이터베이스 연결에 실패하였습니다.");
         }

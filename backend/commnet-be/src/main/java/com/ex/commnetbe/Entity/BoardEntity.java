@@ -35,4 +35,16 @@ public class BoardEntity {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
+
+    @Override
+    public String toString() {
+        return "BoardEntity{" +
+                "postId=" + postId +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }

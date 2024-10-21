@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import '../styles/board01.css';
 
 export default function Board() {
     const navigate = useNavigate(); // useNavigate 훅 사용
@@ -56,38 +57,50 @@ export default function Board() {
         return date.toISOString().split('T')[0]; // 날짜 부분만 반환 (YYYY-MM-DD)
     };
 
+    const boardOne = (postId) => {
+        navigate('/board/one', {state: {postId}});
+    };
+
     return (
-        <div>
-            <h1>게시판</h1>
-            <table className="table">
-                <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>작성일</th>
-                </tr>
-                </thead>
-                <tbody>
-                {/* boardList를 map으로 순회하여 테이블에 데이터 출력 */}
-                {boardList.length > 0 ? (
-                    boardList.map((board, index) => (
-                        <tr key={index}>
-                            <td>{board.postId}</td>{/* 게시글 번호 */}
-                            <td>{board.title}</td>{/* 게시글 제목 */}
-                            <td>{board.author}</td>{/* 게시글 작성자 */}
-                            {/*<td>{board.createdAt}</td>*/}
-                            <td>{formatDate(board.createdAt)}</td>{/* 작성일을 포맷팅 */}
-                        </tr>
-                    ))
-                ) : (
-                    <tr>
-                        <td colSpan="4">게시글이 없습니다.</td>
-                    </tr>
-                )}
-                </tbody>
-            </table>
-            <button className={"btn btn-sm btn-outline-primary"} onClick={loginAuth}>글쓰기</button>
+        <div className="container">
+            {/* boardList를 map으로 순회하여 테이블에 데이터 출력 */}
+            {boardList.length > 0 ? (
+                boardList.map((board, index) => (
+                    <div key={index} className="card" style={{maxWidth: '100%', margin: '10px 0'}}>
+                        <div className="card-body">
+                            <div className="hstack gap-3">
+                                <div className="vstack" style={{maxWidth: '80%'}}>
+                                    <div className="p-2 fs-4">
+                                        <span className="my-hover" onClick={() => boardOne(board.postId)}>{board.title}</span>
+                                    </div>
+                                    <div className="p-2 text-secondary text-truncate">
+                                        <span className="my-hover" onClick={() => boardOne(board.postId)}>{board.content}</span>
+                                    </div>
+                                    <div className="hstack">
+                                        <div className="p-2">{board.author}</div>
+                                        <div className="p-2 text-secondary"><small>{formatDate(board.createdAt)}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="vr"></div>
+                                <div style={{maxWidth: '20%'}}>
+                                    <div className="vstack">
+                                        <div className="p-2">조회수</div>
+                                        <div className="p-2">댓글수</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            ) : (
+                <div>
+                    <div colSpan="4">게시글이 없습니다.</div>
+                </div>
+            )}
+            <div className="d-grid d-md-flex justify-content-md-end">
+                <button className="btn btn-primary me-md-2" onClick={loginAuth}>글쓰기</button>
+            </div>
         </div>
     );
 }

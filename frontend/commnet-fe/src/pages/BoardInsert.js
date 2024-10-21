@@ -28,7 +28,7 @@ export default function BoardInsert() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8080/boardIst', formData, {
+            const response = await axios.post('http://localhost:8080/board/insert', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -45,7 +45,7 @@ export default function BoardInsert() {
     };
 
     return (
-        <div>
+        <div className="container">
             <h1>글쓰기</h1>
             <form onSubmit={handleSubmit}>
                 <div>

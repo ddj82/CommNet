@@ -30,7 +30,7 @@ const Header = () => {
                     setIsLoggedIn(false);
                     alert("토큰이 만료되었습니다. 다시 로그인 해주세요.");
                     navigate('/login');
-                    window.location.reload();
+                    // window.location.reload();
                 }
             };
 
@@ -42,15 +42,15 @@ const Header = () => {
     }, [navigate]);
 
     // 로그인 확인 버튼 클릭 시 토큰 정보 확인
-    const checkLoginStatus = () => {
-        if (remainingTime !== null) {
-            alert(
-                `토큰이 유효합니다. 남은 만료 시간: ${remainingTime}초`
-            );
-        } else {
-            alert('로그인 상태가 아닙니다.');
-        }
-    };
+    // const checkLoginStatus = () => {
+    //     if (remainingTime !== null) {
+    //         alert(
+    //             `토큰이 유효합니다. 남은 만료 시간: ${remainingTime}초`
+    //         );
+    //     } else {
+    //         alert('로그인 상태가 아닙니다.');
+    //     }
+    // };
 
     // 만료 시간 연장 (토큰 재발급) + 유저 정보 업데이트
     const extendSession = async () => {
@@ -91,45 +91,44 @@ const Header = () => {
         window.location.reload();
     };
 
-    const goToMain = () => {
-        navigate('/'); // 메인 페이지로 이동
-        window.location.reload();
-    };
-
     return (
-        <header>
-            <nav>
-                <Link to="/">
-                    <button onClick={goToMain} className={"btn btn-outline-primary"}>메인으로</button>
-                </Link>
+        <div className="container">
+            <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li><Link to="/" className="nav-link px-2 link-secondary">홈</Link></li>
+                    <li><Link to="/Board" className="nav-link px-2">게시판</Link></li>
+                    {/*<li><Link to="/pricing" className="nav-link px-2">Pricing</Link></li>*/}
+                    {/*<li><Link to="/faqs" className="nav-link px-2">FAQs</Link></li>*/}
+                    {/*<li><Link to="/about" className="nav-link px-2">About</Link></li>*/}
+                </ul>
+
                 {!isLoggedIn ? (
-                    <>
-                        <Link to="/login">
-                            <button className={"btn btn-outline-primary"}>로그인</button>
-                        </Link>
+                    <div className="col-md-3 text-end">
                         <Link to="/signup">
-                            <button className={"btn btn-outline-primary"}>회원가입</button>
+                            <button className="btn btn-primary me-2">회원가입</button>
                         </Link>
-                    </>
+                        <Link to="/login">
+                            <button className="btn btn-outline-primary">로그인</button>
+                        </Link>
+                    </div>
                 ) : (
-                    <>
-                        <button onClick={logout} className={"btn btn-outline-danger"}>로그아웃</button>
-
-                        {/* 남은 시간이 5분 이하일 때 경고 표시 */}
-                        {remainingTime !== null && remainingTime <= 300 && (
-                            <div style={{color: 'red', marginTop: '10px'}}>
-                                <strong>경고: 토큰 만료까지 {remainingTime}초 남았습니다!</strong>
-                                <button onClick={extendSession} className={"btn -outline-primary"}>만료 시간 연장</button>
-                            </div>
-                        )}
-
-                        <div>
-                            <button onClick={checkLoginStatus} className={"btn btn-outline-primary"}>로그인확인</button>
-                        </div>
-                    </>
+                    <div className="col-md-4 text-end">
+                        <Link to="/">
+                            <button className="btn btn-primary me-2">내 정보</button>
+                        </Link>
+                        <button onClick={logout} className="btn btn-outline-danger">로그아웃</button>
+                    </div>
                 )}
-            </nav>
-        </header>
+                {/* 남은 시간이 5분 이하일 때 경고 표시 */}
+                {remainingTime !== null && remainingTime <= 3600 && (
+                    <div style={{marginTop: '10px'}} className="col-md-12 text-end">
+                        <small className="me-2">자동 로그아웃 {remainingTime}초 남았습니다.</small>
+                        <button onClick={extendSession} className="btn btn-sm btn">초기화</button>
+                    </div>
+                )}
+
+            </header>
+        </div>
     );
 };
 

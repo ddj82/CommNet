@@ -1,0 +1,12 @@
+div.board-title {
+    padding: .5rem!important;
+    font-size: xx-large;
+}
+
+div.board-content {
+    margin-bottom: 50px;
+}
+
+.my-hover:hover {
+    cursor: pointer;
+}
