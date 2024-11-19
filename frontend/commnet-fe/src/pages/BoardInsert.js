@@ -28,7 +28,7 @@ export default function BoardInsert() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8080/board/insert', formData, {
+            const response = await axios.post('http://localhost:8082/board/insert', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

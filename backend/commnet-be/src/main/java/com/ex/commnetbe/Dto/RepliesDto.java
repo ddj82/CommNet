@@ -6,16 +6,14 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardDto {
+public class RepliesDto {
+    private int replyId;
     private int postId;
-    private String title;
-    private String content;
     private String author;
+    private String content;
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private int viewCount;
-    private int repliesCount;
 }

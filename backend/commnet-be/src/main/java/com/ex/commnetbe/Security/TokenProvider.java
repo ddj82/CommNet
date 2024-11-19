@@ -27,7 +27,7 @@ public class TokenProvider {
             // subject << "sub", issuer << "iss", expiration time << "exp" ....
             JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
                     .subject(email) // jwt의 주체(Subject)
-                    .issueTime(Date.from(now)) // jwt의
+                    .issueTime(Date.from(now)) // jwt의 발급 시간(Issue Time)을 현재시간으로
                     .expirationTime(Date.from(exprTime)) // jwt의 발급 시간(Issue Time)을 현재시간으로
                     .build();
 

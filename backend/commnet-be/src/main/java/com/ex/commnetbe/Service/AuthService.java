@@ -21,8 +21,6 @@ public class AuthService {
     UserRepository userRepository;
     @Autowired
     TokenProvider tokenProvider;
-    @Autowired
-    MainService mainService;
 
     public ResponseDto<?> signUp(SignUpDto dto) {
         String email = dto.getEmail();

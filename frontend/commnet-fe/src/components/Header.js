@@ -30,7 +30,7 @@ const Header = () => {
                     setIsLoggedIn(false);
                     alert("토큰이 만료되었습니다. 다시 로그인 해주세요.");
                     navigate('/login');
-                    // window.location.reload();
+                    window.location.reload();
                 }
             };
 
@@ -41,21 +41,10 @@ const Header = () => {
         }
     }, [navigate]);
 
-    // 로그인 확인 버튼 클릭 시 토큰 정보 확인
-    // const checkLoginStatus = () => {
-    //     if (remainingTime !== null) {
-    //         alert(
-    //             `토큰이 유효합니다. 남은 만료 시간: ${remainingTime}초`
-    //         );
-    //     } else {
-    //         alert('로그인 상태가 아닙니다.');
-    //     }
-    // };
-
     // 만료 시간 연장 (토큰 재발급) + 유저 정보 업데이트
     const extendSession = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/extendSession', {
+            const response = await axios.post('http://localhost:8082/api/auth/extendSession', {
                 token: localStorage.getItem('token') // 기존 토큰을 보냄
             });
 

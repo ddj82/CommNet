@@ -26,6 +26,8 @@ public class BoardEntity {
     private String author;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private int viewCount;
+    private int repliesCount;
 
     public BoardEntity(BoardDto dto) {
         this.postId = dto.getPostId();
@@ -34,6 +36,8 @@ public class BoardEntity {
         this.author = dto.getAuthor();
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
+        this.viewCount = dto.getViewCount();
+        this.repliesCount = dto.getRepliesCount();
     }
 
     @Override
@@ -45,6 +49,8 @@ public class BoardEntity {
                 ", author='" + author + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", viewCount=" + viewCount +
+                ", repliesCount=" + repliesCount +
                 '}';
     }
 }

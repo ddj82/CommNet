@@ -19,7 +19,7 @@ export default function Login() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/login', formData, {
+            const response = await axios.post('http://localhost:8082/api/auth/login', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

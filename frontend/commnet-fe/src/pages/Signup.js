@@ -8,7 +8,7 @@ const Signup = () => {
 
     const requestLogin = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/check');
+            const response = await axios.get('http://localhost:8082/check');
             if (response.status === 200) {
                 console.log('@check success : ', response.data);
             } else {
@@ -39,7 +39,7 @@ const Signup = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/signUp', formData, {
+            const response = await axios.post('http://localhost:8082/api/auth/signUp', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
