@@ -1,13 +1,13 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import * as Utils from './Utils';
-import axios from 'axios';
+import api from '../api';
 
 function ReplyOne({ replyList, user, modalIsOpen, openModal, closeModal, onReplyDeleted }) {
     const replyDelete = async () => {
         try {
-            const response = await axios.post(
-                "http://localhost:8082/reply/delete",
+            const response = await api.post(
+                "/reply/delete",
                 {},
                 {
                     headers: {

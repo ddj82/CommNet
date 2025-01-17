@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from '../api';
 import '../styles/board01.css';
 import { loginAuth } from "../components/LoginAuth";
 import TextareaAutosize from 'react-textarea-autosize';
@@ -23,7 +23,7 @@ function BoardOne() {
 
     const fetchReplies = useCallback(async () => {
         try {
-            const response = await axios.post('http://localhost:8082/reply/list',
+            const response = await api.post('/reply/list',
                 { postId },
                 { headers: { 'Content-Type': 'application/json' } });
             if (response.status === 200 && response.data.result) {
@@ -41,7 +41,7 @@ function BoardOne() {
             setIsLoggedIn(true);
             console.log("로그인");
             try {
-                const response = await axios.post('http://localhost:8082/board/one',
+                const response = await api.post('/board/one',
                     { postId },
                     {
                         headers: {
@@ -63,7 +63,7 @@ function BoardOne() {
             setIsLoggedIn(false);
             console.log("비로그인");
             try {
-                const response = await axios.post('http://localhost:8082/board/one',
+                const response = await api.post('/board/one',
                     { postId },
                     { headers: { 'Content-Type': 'application/json' } });
                 if (response.status === 200 && response.data.result) {
@@ -98,7 +98,7 @@ function BoardOne() {
             formData.append('replyImg', e.target.replyImg.files[0]);
             formData.append('postId', postId);
             try {
-                const response = await axios.post('http://localhost:8082/reply/insert',
+                const response = await api.post('/reply/insert',
                     formData,
                     { headers: { 'Content-Type': 'multipart/form-data' } });
                 if (response.status === 200 && response.data.result) {

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
+import api from '../api';
 import {useNavigate} from "react-router-dom";
 import '../styles/board01.css';
 import Icon from "../components/Icon";
@@ -13,7 +13,7 @@ export default function Board() {
 
     const boardListAll = async () => {
         try {
-            const response = await axios.post('http://localhost:8082/board');
+            const response = await api.post('/board');
             if (response.status === 200) {
                 if (response.data.result) {
                     // 게시글 데이터를 상태에 저장

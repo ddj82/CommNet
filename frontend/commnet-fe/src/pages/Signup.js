@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import axios from 'axios';
+import api from '../api';
 import {useNavigate} from 'react-router-dom';
 import '../styles/style01.css';
 
@@ -8,7 +8,7 @@ const Signup = () => {
 
     const requestLogin = async () => {
         try {
-            const response = await axios.get('http://localhost:8082/check');
+            const response = await api.get('/check');
             if (response.status === 200) {
                 console.log('@check success : ', response.data);
             } else {
@@ -39,7 +39,7 @@ const Signup = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:8082/api/auth/signUp', formData, {
+            const response = await api.post('/auth/signUp', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

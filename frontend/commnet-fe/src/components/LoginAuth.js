@@ -1,8 +1,8 @@
-import axios from 'axios';
+import api from '../api';
 
 export const loginAuth = async (redirectUrl, navigate) => {
     try {
-        const response = await axios.post('http://localhost:8082/api/auth/check', {
+        const response = await api.post('/auth/check', {
             token: localStorage.getItem('token'), // 기존 토큰을 보냄
         });
         if (response.status === 200) {

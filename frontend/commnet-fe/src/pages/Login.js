@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/style01.css';
-import axios from 'axios';
+import api from '../api';
 import {useNavigate} from 'react-router-dom';
 
 export default function Login() {
@@ -19,7 +19,7 @@ export default function Login() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8082/api/auth/login', formData, {
+            const response = await api.post('/auth/login', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

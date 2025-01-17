@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import axios from "axios";
+import api from '../api';
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태
@@ -44,7 +44,7 @@ const Header = () => {
     // 만료 시간 연장 (토큰 재발급) + 유저 정보 업데이트
     const extendSession = async () => {
         try {
-            const response = await axios.post('http://localhost:8082/api/auth/extendSession', {
+            const response = await api.post('/auth/extendSession', {
                 token: localStorage.getItem('token') // 기존 토큰을 보냄
             });
 

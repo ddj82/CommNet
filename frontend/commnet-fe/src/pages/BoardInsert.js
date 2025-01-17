@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
+import api from '../api';
 import {useNavigate} from "react-router-dom";
 
 export default function BoardInsert() {
@@ -28,7 +28,7 @@ export default function BoardInsert() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8082/board/insert', formData, {
+            const response = await api.post('/board/insert', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
